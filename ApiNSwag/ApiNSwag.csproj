@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Codegen>False</Codegen>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,8 +18,9 @@
     </PackageReference>
   </ItemGroup>
 
-  <Target Name="NSwag" AfterTargets="Build">
-    <Exec Command="$(NSwagExe_Core21) run ApiNSwag.nswag"></Exec>
+  <Target Name="NSwag" AfterTargets="Build" Condition="'$(Codegen)' == 'True'">
+    <Exec Command="$(NSwagExe_Core21) webapi2swagger /Assembly:&quot;$(TargetPath)&quot; /AspNetCore:True /ReferencePaths:%USERPROFILE%/.nuget/packages /Output:&quot;$(ProjectDir)nswag.json&quot;"></Exec>
+    <Exec Command="$(NSwagExe_Core21) swagger2csclient /Input:&quot;$(ProjectDir)nswag.json&quot; /Output:&quot;$(SolutionDir)Api.Client\Client.g.cs&quot;"></Exec>
   </Target>
 
 </Project>

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebApplication1.Client\Api.Client.csproj" />
+    <ProjectReference Include="..\Api.Client\Api.Client.csproj" />
   </ItemGroup>
 
 </Project>

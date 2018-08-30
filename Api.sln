@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Console", "Api.Console\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiNSwag", "ApiNSwag\ApiNSwag.csproj", "{ECD901A5-2C76-4346-B910-945580ABCFCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templating", "Templating\Templating.csproj", "{554B01D3-1339-4C36-B4CB-8B1CE551C88E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templating", "Templating\Templating.csproj", "{554B01D3-1339-4C36-B4CB-8B1CE551C88E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

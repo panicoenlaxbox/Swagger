@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NJsonSchema;
 using NSwag.AspNetCore;
-using System.Reflection;
 
 namespace ApiNSwag
 {
@@ -22,6 +22,10 @@ namespace ApiNSwag
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<ShopContext>(builder =>
+            {
+                builder.UseSqlServer(@"Server=(LocalDB)\MSSQLLocalDB;Database=Shop;Trusted_Connection=True;");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,14 +40,20 @@ namespace ApiNSwag
                 app.UseHsts();
             }
 
-            app.UseSwaggerReDoc(typeof(Startup).GetTypeInfo().Assembly, settings =>
+            app.UseSwaggerUi3WithApiExplorer(settings =>
             {
                 settings.GeneratorSettings.DefaultPropertyNameHandling =
                     PropertyNameHandling.CamelCase;
             });
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

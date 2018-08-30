@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using MyNamespace;
 
 namespace Api.Console
 {
@@ -6,11 +7,11 @@ namespace Api.Console
     {
         public static async Task Main(string[] args)
         {
-            var client = new Client.Client("https://localhost:5001/");
-            var result = await client.ApiFooGetAsync();
+            var client = new ValuesClient("https://localhost:5001/");
+            var result = await client.GetAllAsync();
             foreach (var item in result)
             {
-                System.Console.WriteLine($"{item.Bar}, {item.Baz}");
+                System.Console.WriteLine(item);
             }
 
             System.Console.ReadKey();
