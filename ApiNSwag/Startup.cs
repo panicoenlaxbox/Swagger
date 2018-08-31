@@ -26,6 +26,7 @@ namespace ApiNSwag
             {
                 builder.UseSqlServer(@"Server=(LocalDB)\MSSQLLocalDB;Database=Shop;Trusted_Connection=True;");
             });
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +48,12 @@ namespace ApiNSwag
             });
 
             app.UseHttpsRedirection();
+
+            app.UseCors(builder =>
+                builder
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin());
 
             app.UseMvc(routes =>
             {
