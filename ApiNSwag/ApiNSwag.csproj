@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Codegen>False</Codegen>
+    <Codegen>True</Codegen>
   </PropertyGroup>
 
   <ItemGroup>

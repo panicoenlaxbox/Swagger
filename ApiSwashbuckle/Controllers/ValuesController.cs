@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiNSwag.Controllers
+namespace ApiSwashbuckle.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

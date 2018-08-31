@@ -29,6 +29,143 @@
         }
       }
     },
+    "/api/Ef": {
+      "post": {
+        "tags": [
+          "Ef"
+        ],
+        "operationId": "Ef_Index",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/Foo": {
+      "get": {
+        "tags": [
+          "Foo"
+        ],
+        "operationId": "Foo_GetAll",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Foo"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Foo"
+        ],
+        "operationId": "Foo_Post",
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Foo"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/Foo/{id}": {
+      "get": {
+        "tags": [
+          "Foo"
+        ],
+        "operationId": "Foo_Get",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Foo"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Foo"
+        ],
+        "operationId": "Foo_Put",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Foo"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Foo"
+        ],
+        "operationId": "Foo_Delete",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/api/Values": {
       "get": {
         "tags": [
@@ -146,6 +283,20 @@
           "200": {
             "description": ""
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Foo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Bar": {
+          "type": "string"
+        },
+        "Baz": {
+          "type": "string"
         }
       }
     }
