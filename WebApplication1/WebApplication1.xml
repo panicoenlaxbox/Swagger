@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApplication1</name>
+    </assembly>
+    <members>
+        <member name="M:WebApplication1.Controllers.V2.People3Controller.Get">
+            <summary>
+            Devuelve el ilustre nombre de Sergio
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebApplication1.Models.UsersQueryResponse">
+            <summary>
+            Respuesta del usuario
+            </summary>
+        </member>
+        <member name="T:WebApplication1.SwaggerHeaders">
+            <summary>
+            Example filter to add required CompanyId header
+            https://alexdunn.org/2018/06/29/adding-a-required-http-header-to-your-swagger-ui-with-swashbuckle/
+            </summary>
+        </member>
+        <member name="T:WebApplication1.SwaggerDefaultValues">
+            <summary>
+            https://github.com/Microsoft/aspnet-api-versioning/wiki/Swashbuckle-Integration
+            </summary>
+        </member>
+    </members>
+</doc>
